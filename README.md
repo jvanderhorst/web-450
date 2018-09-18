@@ -1,6 +1,6 @@
 # web-450
 Mastering the MEAN Stack Bootcamp
 
-#contributors
+# contributors
 Professor Richard Krasso
 Johnny Vanderhorst
