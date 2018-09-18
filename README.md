@@ -2,5 +2,6 @@
 Mastering the MEAN Stack Bootcamp
 
 # contributors
-Professor Richard Krasso
-Johnny Vanderhorst
+Professor Richard Krasso - Bellevue University
+
+Johnny Vanderhorst - Bellevue University
