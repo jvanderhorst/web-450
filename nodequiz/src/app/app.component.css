@@ -1,0 +1,58 @@
+/*
+font-family: 'Baloo', cursive;
+font-family: 'Noto Sans', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css?family=Baloo|Noto+Sans:400,700');
+
+/*Body Styles*/
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+
+
+.wrapper {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+}
+
+h1 {
+    font-family: 'Baloo', cursive;
+  }
+
+/*Toolbar*/
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    
+    
+}
+
+/*Content*/
+.display-title {
+    font-family: 'Baloo', cursive;
+    font-size: 5em;
+}
+  
+.user-input {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.user-input button {
+    width: 50%;
+}
+
+
