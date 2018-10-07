@@ -1,0 +1,14 @@
+.display-title {
+    font-family: 'Baloo', cursive;
+    font-size: 5em;
+}
+  
+.user-input {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.user-input button {
+    width: 50%;
+}

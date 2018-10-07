@@ -7,10 +7,28 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AppRoutingModule } from './/app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { QuizSelectComponent } from './quiz-select/quiz-select.component';
+import { PresentationsComponent } from './presentations/presentations.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { ResultsComponent } from './results/results.component';
+import { CumulativeResultsComponent } from './cumulative-results/cumulative-results.component';
+import {FormsModule} from "@angular/forms";
+import { MatDialogModule } from "@angular/material";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    QuizSelectComponent,
+    PresentationsComponent,
+    QuizComponent,
+    ResultsComponent,
+    CumulativeResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,10 +42,19 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FlexLayoutModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    AppRoutingModule,
+    FormsModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatRadioModule
+    
     
   ],
+
+  
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [PresentationsComponent]
 })
 export class AppModule { }

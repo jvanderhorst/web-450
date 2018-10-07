@@ -3,7 +3,7 @@
   <div class="container">
     <mat-toolbar class="menu" role="header" color="primary">
       <mat-toolbar-row>
-        <a ><h1>nodeQuiz</h1></a>
+        <a [routerLink]="['/']"><h1>nodeQuiz</h1></a>
         <div fxFlex></div>
         <!-- User Profile -->
         <button class="toolbar__icon-button" [matMenuTriggerFor]="menu" mat-icon-button>
@@ -25,25 +25,9 @@
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
-
-
+    <!--component view wrapper-->
     <div class="wrapper">
-      <div class="display-title">
-        nodeQuiz
-      </div>
-      <h2>Welcome to nodeQuiz’s end-to-end learning management system. nodeQuiz provides an easy seamless experience to complete organizational training online. Employees can access training materials from all devices: laptops, tablets, and smartphones. </h2>
-      <br>
-      <h2>Login below using your employee ID.</h2>
-      <div class="user-input">
-        <form >
-          <mat-form-field>
-            <input type="text" required minlength="4" matInput placeholder="Employee ID">
-          </mat-form-field>
-          <br>
-          <button mat-raised-button type="submit" color="accent" style="height: 50px;">Login</button>
-        </form>
-      </div>
+      <router-outlet></router-outlet>
     </div>
-
-  </div>
+  </div>  
 </body>
