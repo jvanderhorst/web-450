@@ -17,26 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(formData){
-    console.log(formData);
-    console.log(formData.employeeId);
-    if (this.verifyId(formData.employeeId)){
-      this.submitted = true;
-      console.log(formData.employeeId + ' is logged in');
-      
-      this.http.post('/api/employee', {
-        employeeId: formData.employeeId
-      }).subscribe(res => {
-        this.router.navigate(['/select', res])
-      }, (err) => {
-        console.log(err)
-      });
-    }
-  }
-
-  verifyId(_id: String){
-    if (_id.length == 4)
-    return true;
-  }
+  
   
 }
