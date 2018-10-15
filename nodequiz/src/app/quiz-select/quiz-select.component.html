@@ -1,39 +1,82 @@
-<div class="wrapper">
+
   <h1>Quiz Selection</h1>
 
-  <!--Trying to create quiz selection screen using matdialog, have trouble passing video data to dialog.
-  Will work on this if time is available-->
-  <mat-card *ngFor="let video of videos">
-    <mat-card-title>{{video.name}}</mat-card-title>
-    <button mat-raised-button (click)="openVideoDialog()">Start Presentation</button>
-  </mat-card>
-
-  <!--Original quiz selection screen-->
-  <mat-card class="quiz-select">
-    <mat-card-title>DevOps Quiz</mat-card-title>
-    <mat-card-content>
+  <!--presentation selection, presented in matdialog-->
+  <div class="selection-container">
+    <mat-card >
+      <mat-card-content>
+        <img mat-card-image src="./assets/images/devops.png">
+        <mat-card-title>Devops</mat-card-title>
+        <mat-card-subtitle>DevOps, combines development and operations teams. This combination of philosophies, 
+          practices and tools increases an organization’s ability to deliver applications and services at a high speed. 
+        </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="openVideoDialog(devops)">Start Presentation</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card >
+      <mat-card-content>
+        <img mat-card-image src="./assets/images/angular.png">
+        <mat-card-title>Angular</mat-card-title>
+        <mat-card-subtitle>Angular is a platform that makes it easy to build applications 
+          with the web. Angular combines declarative templates, dependency injection, end to end tooling, 
+          and integrated best practices to solve development challenges.  
+        </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="openVideoDialog(angular)">Start Presentation</button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-card >
+      <mat-card-content>
+        <img mat-card-image src="./assets/images/rest.png">
+        <mat-card-title>REST</mat-card-title>
+        <mat-card-subtitle>The Representational State Transfer (REST) is an architectural style that provides 
+          standards between web systems. REST makes communications on the web easier, by exploiting the full 
+          potential of the web by using existing web standards. 
+        </mat-card-subtitle>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button (click)="openVideoDialog(rest)">Start Presentation</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <!--matdialog content-->
+  <ng-template #devops>
+    <h1 mat-dialog-title>DevOps</h1>
+    <mat-dialog-content>
       <video controls reload="none" style="width:1000px;"><source src="./assets/presentations/DevOps.mp4"></video>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" [routerLink]="['/quiz']">Start Quiz</button>
-    </mat-card-actions>
-  </mat-card>  
-  <mat-card class="quiz-select">
-    <mat-card-title>Angular Quiz</mat-card-title>
-    <mat-card-content>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+        <div fxFlex></div>
+      <button mat-raised-button color="accent" mat-dialog-close [routerLink]="['/quiz']">Start Quiz</button>
+    </mat-dialog-actions>
+  </ng-template>
+    
+  <ng-template #angular>
+    <h1 mat-dialog-title>Angular</h1>
+    <mat-dialog-content>
       <video controls reload="none" style="width:1000px;"><source src="./assets/presentations/angular.mp4"></video>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" [routerLink]="['/quiz']">Start Quiz</button>
-    </mat-card-actions>
-  </mat-card>  
-  <mat-card class="quiz-select">
-    <mat-card-title>REST Quiz</mat-card-title>
-    <mat-card-content>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+        <div fxFlex></div>
+      <button mat-raised-button color="accent" mat-dialog-close [routerLink]="['/quiz']">Start Quiz</button>
+    </mat-dialog-actions>
+  </ng-template>
+    
+  <ng-template #rest>
+    <h1 mat-dialog-title>REST</h1>
+    <mat-dialog-content>
       <video controls reload="none" style="width:1000px;"><source src="./assets/presentations/REST.mp4"></video>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="accent" [routerLink]="['/quiz']">Start Quiz</button>
-    </mat-card-actions>
-  </mat-card>  
-</div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button mat-dialog-close>Close</button>
+        <div fxFlex></div>
+      <button mat-raised-button color="accent" mat-dialog-close [routerLink]="['/quiz']">Start Quiz</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+  

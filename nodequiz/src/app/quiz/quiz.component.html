@@ -1,5 +1,39 @@
 <div class="wrapper">
-<h1>Quiz</h1>
+
+    <div>
+      <p>Quiz goes here</p>
+      <span *ngIf="quiz">
+        <p>{{quiz.quizName}}</p>
+        <ul>
+          <li *ngFor="let quiz of quizzes">
+            <span>{{quiz.quizId}}</span>
+          </li>
+        </ul>
+        </span>
+    </div>
+      
+  
+  <!--<div>
+  <ul>
+    <li *ngFor="let quiz of quizzes" [class.selected]="quiz === selectedQuiz" (click)="onSelect(quiz)">
+      <span>{{quiz.quiz_name}}</span>
+    </li>
+  </ul>
+</div>
+<div *ngIf="selectedQuiz" >
+  <h1>{{selectedQuiz.quiz_name}}</h1>
+  <h2>{{selectedQuiz.quiz_id}}</h2>
+  <ol *ngFor="let question of selectedQuiz.question" >
+      <li>{{question_text}}</li>
+      <mat-radio-group *ngFor="let answer of selectedQuiz.answer">
+        <mat-radio-button >{{answer_text}}</mat-radio-button>
+      </mat-radio-group>
+  </ol>
+
+</div>-->
+
+<!--Example of quiz layout, final code will pull data from db-->
+  <!--<h1>Quiz</h1>
 <ol class="quiz">
   <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
     <mat-radio-group class="answers">
@@ -73,5 +107,5 @@
     </mat-radio-group>
 </ol>
 <br>
-<button mat-raised-button color="accent">Submit</button>
+<button mat-raised-button color="accent">Submit</button>-->
 </div>

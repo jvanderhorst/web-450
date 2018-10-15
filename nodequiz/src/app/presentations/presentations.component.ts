@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material'
+import { Component } from '@angular/core';
+
 
 
 
@@ -10,15 +10,6 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material'
 })
 export class PresentationsComponent {
 
-  
-
-  constructor(
-    private dialogRef: MatDialogRef<PresentationsComponent>,
-    @Inject(MAT_DIALOG_DATA) private data
-  ) { }
-
-  ngOnInit() {
-   
-  }
+  constructor() { }
 
 }

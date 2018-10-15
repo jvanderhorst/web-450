@@ -18,6 +18,9 @@ import {FormsModule} from "@angular/forms";
 import { MatDialogModule } from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import { HttpClientModule } from '@angular/common/http';
+import { QuizService } from './quiz.service';
+import { UserService } from './user.service';
 
 
 @NgModule({
@@ -32,6 +35,7 @@ import {MatRadioModule} from '@angular/material/radio';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
@@ -47,13 +51,14 @@ import {MatRadioModule} from '@angular/material/radio';
     FormsModule,
     MatDialogModule,
     MatExpansionModule,
-    MatRadioModule
+    MatRadioModule,
+    
     
     
   ],
 
   
-  providers: [],
+  providers: [QuizService, UserService],
   bootstrap: [AppComponent],
   entryComponents: [PresentationsComponent]
 })

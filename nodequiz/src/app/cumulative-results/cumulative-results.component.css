@@ -1,0 +1,13 @@
+/*
+font-family: 'Baloo', cursive;
+font-family: 'Noto Sans', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css?family=Baloo|Noto+Sans:400,700');
+
+p, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Baloo', cursive;
+}

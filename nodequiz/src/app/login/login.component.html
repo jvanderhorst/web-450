@@ -4,9 +4,9 @@
 <br>
 <h2>Login below using your employee ID.</h2>
 <div class="user-input">
-  <form >
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
     <mat-form-field>
-      <input type="text" required minlength="4" matInput placeholder="Employee ID">
+      <input type="text" class="form-control" required minlength="4" matInput placeholder="Employee ID">
     </mat-form-field>
     <br>
     <button mat-raised-button type="submit" color="accent" style="height: 50px;" [routerLink]="['/quiz-select']">Login</button>

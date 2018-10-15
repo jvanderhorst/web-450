@@ -7,6 +7,8 @@ const logger = require('./helpers/logger');
 const mongoose = require('mongoose');
 const config = require('./helpers/config');
 const homeRouter = require('./routes/home-router');
+const Employee = require('./models/employeeModel');
+const Quiz = require('./models/quizModel');
 
 /**
  * MongoDB setup
@@ -50,5 +52,7 @@ app.use(function (err, req, res, next) {
 
   res.sendStatus(err.status);
 });
+
+
 
 module.exports = app;
