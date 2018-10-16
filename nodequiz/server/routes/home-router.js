@@ -6,10 +6,9 @@ const Quiz = require('../models/quizModel');
 let home_controller = require('../controllers/homeController');
 
 router.get('/', home_controller.index);
-router.get('/quiz', home_controller.getQuiz);
-router.get('/employee', home_controller.getEmployee);
 
-/*router.get('/employee', (req, res, next) => {
+
+router.get('/employee', (req, res, next) => {
     console.log('get request for employees');
     Employee.find({}).exec(function(err, employeeName){
         if (err) return next(err);
@@ -43,7 +42,7 @@ router.get('/employee/:id', (req, res, next) => {
       console.log(Employee);
     });
 });
-*/
+
 
 
 module.exports = router;
