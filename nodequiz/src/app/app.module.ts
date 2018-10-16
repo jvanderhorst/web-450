@@ -21,6 +21,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizService } from './quiz.service';
 import { UserService } from './user.service';
+import { LoginService } from './login.service';
+
 
 
 @NgModule({
@@ -58,7 +60,7 @@ import { UserService } from './user.service';
   ],
 
   
-  providers: [QuizService, UserService],
+  providers: [QuizService, UserService, LoginService],
   bootstrap: [AppComponent],
   entryComponents: [PresentationsComponent]
 })

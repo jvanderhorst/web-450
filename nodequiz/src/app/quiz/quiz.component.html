@@ -1,35 +1,31 @@
 <div class="wrapper">
-
-    <div>
+  <!--connection to db-->
+  <div>
       <p>Quiz goes here</p>
-      <span *ngIf="quiz">
+      <span *ngFor="let quiz  of quizzes">
         <p>{{quiz.quizName}}</p>
-        <ul>
-          <li *ngFor="let quiz of quizzes">
-            <span>{{quiz.quizId}}</span>
-          </li>
-        </ul>
+        
         </span>
     </div>
       
-  
+  <!--connection to local data-->
   <!--<div>
   <ul>
-    <li *ngFor="let quiz of quizzes" [class.selected]="quiz === selectedQuiz" (click)="onSelect(quiz)">
-      <span>{{quiz.quiz_name}}</span>
+    <li *ngFor="let quiz of quizzes" [class.selected]="quiz === selectedQuiz" (click)="onSelectQuiz(quiz)">
+      <span>{{quiz.quizName}}</span>
     </li>
   </ul>
-</div>
-<div *ngIf="selectedQuiz" >
-  <h1>{{selectedQuiz.quiz_name}}</h1>
-  <h2>{{selectedQuiz.quiz_id}}</h2>
+
+<ng-container *ngIf="selectedQuiz" >
+  <h1>{{selectedQuiz.quizName}}</h1>
+  <h2>{{selectedQuiz.quizId}}</h2>
   <ol *ngFor="let question of selectedQuiz.question" >
-      <li>{{question_text}}</li>
+      <li>{{selectedQuiz.questionText}}</li>
       <mat-radio-group *ngFor="let answer of selectedQuiz.answer">
-        <mat-radio-button >{{answer_text}}</mat-radio-button>
+        <mat-radio-button >{{answerText}}</mat-radio-button>
       </mat-radio-group>
   </ol>
-
+</ng-container>
 </div>-->
 
 <!--Example of quiz layout, final code will pull data from db-->

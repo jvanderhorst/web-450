@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Quiz } from "./quiz";
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 
 
+import { catchError, retry } from 'rxjs/operators';
 
 
 
@@ -16,11 +17,11 @@ export class QuizService {
 
   constructor(private http: HttpClient) { }
 
-  getQuiz(){
-    return this.http.get<Quiz>(this.quizUrl)
+  getQuiz (): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(this.quizUrl)
+   
   }
-
-  
  
+
 
 }

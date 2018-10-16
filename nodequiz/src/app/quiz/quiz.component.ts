@@ -1,47 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../quiz.service';
 import { Quiz } from '../quiz';
+import { QUIZZES } from '../quiz-content';
+import { HttpClient } from '@angular/common/http';
+import { Router, Routes } from '@angular/router';
 
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
   styleUrls: ['./quiz.component.css'],
-  providers: [ QuizService ]
+  providers: [ ]
 })
-export class QuizComponent implements OnInit {
-  quiz: Quiz;
-  //quizzes = QUIZZES;
-  //selectedQuiz: Quiz;
-
-  //quiz: any = [];
+export class QuizComponent implements OnInit{
+  quizzes: Quiz[];//connect to server
   
-  //quizzes: Array<Quiz>;
-
-
+  /* local connection
+  quizzes = QUIZZES;
+  selectedQuiz: Quiz;
+  */
   
   constructor(private quizService: QuizService) { }
 
-  showQuiz() {
-    this.quizService.getQuiz()
-    .subscribe((data: Quiz) => this.quiz = {
-      quizId: data['quizId'],
-      quizName:  data['quizName'],
-      question: data['question']
-    });
-  }
-
-  
- 
-  ngOnInit() { }
-
-  /*onSelectQuiz(quiz:any){
+  /* local connection
+  onSelectQuiz(quiz: Quiz): void {
     this.selectedQuiz = quiz;
-    console.log(this.SelectedQuiz)
-  }*/
+  }
+  */
+   
+  ngOnInit() {
+    this.getQuiz();
+   }
 
-
-
-  
+   getQuiz(): void {
+    this.quizService.getQuiz()
+    .subscribe(quizzes => this.quizzes = quizzes)
+  }
 
 }
