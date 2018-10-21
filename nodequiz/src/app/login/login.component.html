@@ -1,23 +1,31 @@
 <!--Login content-->
 <div class="display-title">nodeQuiz</div>
-<h2>Welcome to nodeQuiz’s end-to-end learning management system. nodeQuiz provides an easy seamless experience to complete organizational training online. Employees can access training materials from all devices: laptops, tablets, and smartphones. </h2>
-<br>
-<h2>Login below using your employee ID.</h2>
+  <h2>Welcome to nodeQuiz’s end-to-end learning management system. 
+    nodeQuiz provides an easy seamless experience to complete organizational 
+    training online. Employees can access training materials from all devices: 
+    laptops, tablets, and smartphones. 
+  </h2>
+  <br>
+  <h2>Login below using your employee ID.
+  </h2>
 <div class="user-input">
-  <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && loginEmployee()" novalidate>
     <mat-form-field>
-      <input type="text" class="form-control" required minlength="4" matInput placeholder="Employee ID">
+      <input 
+      name="employeeId" 
+      type="text" 
+      class="form-control" 
+      required 
+      minlength="5" 
+      matInput 
+      placeholder="Employee ID" 
+      [(ngModel)]="employeeId">
     </mat-form-field>
     <br>
-    <button mat-raised-button type="submit" color="accent" style="height: 50px;" [routerLink]="['/quiz-select']">Login</button>
+    <button mat-raised-button type="submit" color="accent" style="height: 50px;" (click)="loginEmployee()">Login</button>
   </form>
- 
-<!--Temporary links to component views-->  
-<button mat-button class="toolbar__icon-button mat-button" [routerLink]="['/quiz']">quiz</button>
-<button mat-button class="toolbar__icon-button mat-button" [routerLink]="['/results']">results</button>
-<button mat-button class="toolbar__icon-button mat-button" [routerLink]="['/cumulative-results']">cumulative results</button>
-    
 </div>
+
 
 
 

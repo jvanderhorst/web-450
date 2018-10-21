@@ -18,6 +18,7 @@ import {FormsModule} from "@angular/forms";
 import { MatDialogModule } from "@angular/material";
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatTableModule} from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
 import { QuizService } from './quiz.service';
 import { UserService } from './user.service';
@@ -54,9 +55,7 @@ import { LoginService } from './login.service';
     MatDialogModule,
     MatExpansionModule,
     MatRadioModule,
-    
-    
-    
+    MatTableModule
   ],
 
   

@@ -23,3 +23,7 @@ h1 {
 .option {
     padding: 10px 0 10px 0;
 }
+
+li {
+    list-style-type: none;
+}

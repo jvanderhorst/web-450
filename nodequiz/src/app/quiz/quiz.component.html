@@ -1,107 +1,25 @@
 <div class="wrapper">
   <!--connection to db-->
   <div>
-      <p>Quiz goes here</p>
-      <span *ngFor="let quiz  of quizzes">
-        <p>{{quiz.quizName}}</p>
+      <form #quizForm="ngForm">
         
+        <span *ngFor="let quiz of quizzes">
+        <h1>{{quiz.quizName}} Quiz</h1>
+        <p>Quiz ID: {{quiz.quizId}}</p>
+        <ul *ngFor="let question of quiz.question, let i = index">
+          <li><h2>{{i + 1}}. {{question.questionText}}</h2></li>
+          <div *ngFor="let answer of question.answer">
+          <mat-radio-group >
+            <mat-radio-button [value]="answer.answerText" ><h3>{{answer.answerText}}</h3></mat-radio-button>
+            </mat-radio-group>
+            </div>
+        </ul>
+        <button mat-raised-button color="accent" [routerLink]="['/results']">Submit</button>
         </span>
+        
+      </form>
     </div>
+
+   
       
-  <!--connection to local data-->
-  <!--<div>
-  <ul>
-    <li *ngFor="let quiz of quizzes" [class.selected]="quiz === selectedQuiz" (click)="onSelectQuiz(quiz)">
-      <span>{{quiz.quizName}}</span>
-    </li>
-  </ul>
-
-<ng-container *ngIf="selectedQuiz" >
-  <h1>{{selectedQuiz.quizName}}</h1>
-  <h2>{{selectedQuiz.quizId}}</h2>
-  <ol *ngFor="let question of selectedQuiz.question" >
-      <li>{{selectedQuiz.questionText}}</li>
-      <mat-radio-group *ngFor="let answer of selectedQuiz.answer">
-        <mat-radio-button >{{answerText}}</mat-radio-button>
-      </mat-radio-group>
-  </ol>
-</ng-container>
-</div>-->
-
-<!--Example of quiz layout, final code will pull data from db-->
-  <!--<h1>Quiz</h1>
-<ol class="quiz">
-  <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-    <h2><li class="questions">DevOps is a methodology that combines which two teams?</li></h2>
-    <mat-radio-group class="answers">
-      <mat-radio-button class="option" value="1">Compliance and Development</mat-radio-button>
-      <mat-radio-button class="option" value="2">Development and Facilities</mat-radio-button>
-      <mat-radio-button class="option" value="3">Development and Operations</mat-radio-button>
-      <mat-radio-button class="option" value="4">Development and Observation</mat-radio-button>
-    </mat-radio-group>
-</ol>
-<br>
-<button mat-raised-button color="accent">Submit</button>-->
-</div>
+  

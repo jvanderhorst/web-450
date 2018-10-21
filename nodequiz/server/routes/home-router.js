@@ -7,7 +7,7 @@ let home_controller = require('../controllers/homeController');
 
 router.get('/', home_controller.index);
 
-
+//Get request for all employees
 router.get('/employee', (req, res, next) => {
     console.log('get request for employees');
     Employee.find({}).exec(function(err, employeeName){
@@ -15,7 +15,7 @@ router.get('/employee', (req, res, next) => {
         res.json(employeeName);
     });
 });
-
+//Get request for all quizzes
 router.get('/quiz', (req, res, next) => {
     console.log('get request for quizzes');
     Quiz.find({}).exec((err, quizName) => {
@@ -24,7 +24,7 @@ router.get('/quiz', (req, res, next) => {
       console.log(quizName);
     });
 });
-
+//Get request for quiz by id
 router.get('/quiz/:id', (req, res, next) => {
     console.log('get request for quizzes');
     Quiz.findById(req.params.id).exec((err, quiz) => {
@@ -33,7 +33,7 @@ router.get('/quiz/:id', (req, res, next) => {
       console.log(quiz);
     });
 });
-
+//Get request for employee by id
 router.get('/employee/:id', (req, res, next) => {
     console.log('get request for quizzes');
     Employee.findById(req.params.id).exec((err, Employee) => {
@@ -42,7 +42,5 @@ router.get('/employee/:id', (req, res, next) => {
       console.log(Employee);
     });
 });
-
-
 
 module.exports = router;

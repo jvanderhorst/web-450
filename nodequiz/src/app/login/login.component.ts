@@ -1,27 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { UserService } from '../user.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../user';
+import { UserService } from '../user.service';
+import { LoginService } from '../login.service';
+import { HttpRequest } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ LoginService ]
 })
-export class LoginComponent implements OnInit {
- employees: User[];
+export class LoginComponent implements OnInit{
+ employeeId: number;
 
-  constructor(private userService: UserService) { }
-
-  ngOnInit() {
-    this.getEmployee();
-  }
-
-  getEmployee(): void {
-    this.userService.getEmployee()
-    .subscribe(employees => this.employees = employees)
-  }
+  constructor(private loginService: LoginService, private router: Router) {}
   
+  ngOnInit() {}
+
+  loginEmployee(){
+    if(this.employeeId == this.employeeId) {
+      this.router.navigate(['quiz-select']);
+    }
+    else {
+      this.router.navigate(['login'])
+      alert('Invalid Employee ID')
+    }
+  }
 }

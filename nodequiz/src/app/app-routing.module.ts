@@ -6,15 +6,18 @@ import { PresentationsComponent } from './presentations/presentations.component'
 import { QuizComponent } from './quiz/quiz.component';
 import { ResultsComponent } from './results/results.component';
 import { CumulativeResultsComponent } from './cumulative-results/cumulative-results.component';
+import { LoginGuard } from './login.guard';
+
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'quiz-select', component: QuizSelectComponent },
   { path: 'presentations', component: PresentationsComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'results', component: ResultsComponent },
-  { path: 'cumulative-results', component: CumulativeResultsComponent }
+  { path: 'cumulative-results', component: CumulativeResultsComponent },
       
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

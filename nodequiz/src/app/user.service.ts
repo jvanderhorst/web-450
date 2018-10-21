@@ -22,7 +22,5 @@ export class UserService {
 
   getEmployee (): Observable<User[]> {
     return this.http.get<User[]>(this.employeeUrl)
-   
   }
-
 }

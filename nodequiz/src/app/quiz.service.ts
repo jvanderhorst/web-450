@@ -14,14 +14,16 @@ import { catchError, retry } from 'rxjs/operators';
 export class QuizService {
   
  quizUrl = '/api/quiz';
+ quizIdUrl = '/api/quiz/:id';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {}
 
   getQuiz (): Observable<Quiz[]> {
     return this.http.get<Quiz[]>(this.quizUrl)
-   
   }
- 
 
-
+  getQuizById (): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(this.quizIdUrl)
+  }
 }

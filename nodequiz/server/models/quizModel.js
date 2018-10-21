@@ -16,9 +16,14 @@ const quizSchema = new mongoose.Schema({
             ]
         }
     ]   
-});
+},
+    {collection: 'quiz'}
+);
 
 const Quiz = module.exports = mongoose.model('Quiz', quizSchema);
 
-
+module.exports.getById = (id, callback) => {
+    var query = {quizId: id};
+    Quiz.findById(query, callback);
+}
 

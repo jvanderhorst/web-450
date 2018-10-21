@@ -13,28 +13,18 @@ import { Router, Routes } from '@angular/router';
   providers: [ ]
 })
 export class QuizComponent implements OnInit{
-  quizzes: Quiz[];//connect to server
-  
-  /* local connection
-  quizzes = QUIZZES;
-  selectedQuiz: Quiz;
-  */
-  
+  quizzes: Quiz[];
+  question: Array<object>;
+  answer: Array<object>;
+    
   constructor(private quizService: QuizService) { }
 
-  /* local connection
-  onSelectQuiz(quiz: Quiz): void {
-    this.selectedQuiz = quiz;
-  }
-  */
-   
   ngOnInit() {
     this.getQuiz();
-   }
+  }
 
-   getQuiz(): void {
+  getQuiz(): void {
     this.quizService.getQuiz()
     .subscribe(quizzes => this.quizzes = quizzes)
   }
-
 }

@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { User } from './user';
 import { Observable, of } from 'rxjs';
 import { tap, delay } from 'rxjs/operators';
 
@@ -7,7 +9,12 @@ import { tap, delay } from 'rxjs/operators';
 })
 export class LoginService {
   
+  private employeeUrl = 'api/employee';
 
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
+  getEmployee (): Observable<User[]> {
+    return this.http.get<User[]>(this.employeeUrl)
+   
+  }
 }
